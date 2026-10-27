@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-27T20:52:01.721Z",
+  "generatedAt": "2026-10-27T20:54:54.139Z",
   "records": [
     {
       "login": "unco",
-      "issue": 1,
-      "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/1",
-      "recordedAt": "2026-10-27T20:51:46Z",
-      "repoSha": "a6d0f521cd50f79635afd6e3e06a3ece8370da7b",
+      "issue": 2,
+      "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/2",
+      "recordedAt": "2026-10-27T20:54:39Z",
+      "repoSha": "146e647e32ac00cfe72f49f0015f6da69ccd196a",
       "jig": "telemetry-sankey",
       "jigVersion": "2026.10.27-1",
       "role": "designer",
@@ -16,11 +16,11 @@
           "token": "neutral",
           "hex": "#7d7570"
         },
-        "linkOpacity": 0.4,
-        "hoverOpacity": 0.9,
-        "dimOpacity": 0.15
+        "linkOpacity": 0.8,
+        "hoverOpacity": 0.65,
+        "dimOpacity": 0.1
       },
-      "rationale": "TEST: checking the Action end to end. Delete this record.",
+      "rationale": "Slightly warm and still WCAG",
       "sawOthers": false
     }
   ]
