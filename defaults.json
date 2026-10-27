@@ -1,0 +1,6 @@
+{
+  "jig": "telemetry-sankey",
+  "baseline": { "colourMode": "neutral", "customHex": "#2a7de1", "linkOpacity": 0.45, "hoverOpacity": 0.9, "dimOpacity": 0.15 },
+  "settled": {},
+  "_note": "Change only through a PR that cites the decision issues. Example once ratified: \"settled\": { \"colour\": { \"pr\": \"#12\", \"note\": \"Brand for links, ratified by design lead\" } }"
+}

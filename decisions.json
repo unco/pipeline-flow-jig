@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-10-27T12:00:00Z",
+  "records": [
+    {"example": true, "login": "example-operator", "issue": 1, "issueUrl": null, "role": "operator", "jig": "telemetry-sankey", "jigVersion": "2026.10.27-1", "sawOthers": false, "recordedAt": "2026-10-27T09:10:00Z",
+     "values": {"colour": {"mode": "preset", "token": "neutral", "hex": "#7d7570"}, "linkOpacity": 0.4, "hoverOpacity": 0.95, "dimOpacity": 0.1},
+     "rationale": "Neutral keeps the brand colour free for alerts. Low dimming makes the traced flow obvious during an incident."},
+    {"example": true, "login": "example-admin", "issue": 2, "issueUrl": null, "role": "admin", "jig": "telemetry-sankey", "jigVersion": "2026.10.27-1", "sawOthers": false, "recordedAt": "2026-10-27T09:22:00Z",
+     "values": {"colour": {"mode": "preset", "token": "secondary", "hex": "#772953"}, "linkOpacity": 0.5, "hoverOpacity": 0.9, "dimOpacity": 0.2},
+     "rationale": "Secondary reads as calmer on a dashboard I look at all day, and I still want to see the other flows faintly."},
+    {"example": true, "login": "example-compliance", "issue": 3, "issueUrl": null, "role": "compliance", "jig": "telemetry-sankey", "jigVersion": "2026.10.27-1", "sawOthers": false, "recordedAt": "2026-10-27T10:05:00Z",
+     "values": {"colour": {"mode": "preset", "token": "neutral", "hex": "#7d7570"}, "linkOpacity": 0.55, "hoverOpacity": 1, "dimOpacity": 0.25},
+     "rationale": "I need the Redact PII path to stand out without losing where the rest of the data goes."},
+    {"example": true, "login": "example-developer", "issue": 4, "issueUrl": null, "role": "developer", "jig": "telemetry-sankey", "jigVersion": "2026.10.27-1", "sawOthers": true, "recordedAt": "2026-10-27T10:40:00Z",
+     "values": {"colour": {"mode": "custom", "token": null, "hex": "#2a7de1"}, "linkOpacity": 0.35, "hoverOpacity": 0.85, "dimOpacity": 0.05},
+     "rationale": "Blue matches the other observability tools I use. Near-zero dimming isolates one flow completely."},
+    {"example": true, "login": "example-designer", "issue": 5, "issueUrl": null, "role": "designer", "jig": "telemetry-sankey", "jigVersion": "2026.10.27-1", "sawOthers": false, "recordedAt": "2026-10-27T11:15:00Z",
+     "values": {"colour": {"mode": "preset", "token": "brand", "hex": "#e95420"}, "linkOpacity": 0.45, "hoverOpacity": 0.9, "dimOpacity": 0.15},
+     "rationale": "Brand at 0.45 is warm without shouting; overlapping flows stay readable."}
+  ]
+}

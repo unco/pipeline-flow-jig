@@ -1,0 +1,61 @@
+name: Record jig decision
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: record-decision
+  cancel-in-progress: false
+
+jobs:
+  record:
+    if: startsWith(github.event.issue.title, '[jig]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Issue fields go through env, never interpolated into the script, so issue text cannot inject shell.
+      - name: Parse and validate
+        id: parse
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_LOGIN: ${{ github.event.issue.user.login }}
+          ISSUE_CREATED: ${{ github.event.issue.created_at }}
+          JIG_SHA: ${{ github.sha }}
+        run: node scripts/record-decision.mjs
+
+      - name: Commit record
+        if: steps.parse.outputs.status == 'ok'
+        run: |
+          git config user.name "jig-recorder[bot]"
+          git config user.email "jig-recorder@users.noreply.github.com"
+          git add decisions/ decisions.json
+          git diff --cached --quiet || git commit -m "Record jig decision from #${{ github.event.issue.number }}"
+          git push
+
+      - name: Reply on the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          STATUS: ${{ steps.parse.outputs.status }}
+          MESSAGE: ${{ steps.parse.outputs.message }}
+        run: |
+          if [ "$STATUS" = "ok" ]; then
+            gh issue comment "$NUMBER" --body "$MESSAGE"
+            gh issue edit "$NUMBER" --add-label jig-decision || true
+            gh issue close "$NUMBER" --reason completed
+          else
+            gh issue comment "$NUMBER" --body "$MESSAGE"
+            exit 1
+          fi
