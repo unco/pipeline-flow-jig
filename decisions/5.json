@@ -1,0 +1,22 @@
+{
+  "login": "lukasSerelis",
+  "issue": 5,
+  "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/5",
+  "recordedAt": "2026-10-27T22:46:04Z",
+  "repoSha": "8f88f141e896f55011fcc167747514d676d88741",
+  "jig": "telemetry-sankey",
+  "jigVersion": "2026.10.27-1",
+  "role": "operator",
+  "values": {
+    "colour": {
+      "mode": "preset",
+      "token": "secondary",
+      "hex": "#772953"
+    },
+    "linkOpacity": 0.8,
+    "hoverOpacity": 0.9,
+    "dimOpacity": 0.1
+  },
+  "rationale": "This isn't quite my tempo.",
+  "sawOthers": false
+}
