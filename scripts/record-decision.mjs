@@ -55,20 +55,15 @@ fs.mkdirSync("decisions", { recursive: true });
 fs.writeFileSync(path.join("decisions", `${record.issue}.json`), JSON.stringify(record, null, 2) + "\n");
 
 // One file per issue: editing an issue replaces its record, and git history keeps the earlier version.
-// Keep only each login's latest record per jig version, so one person cannot stack votes.
-const all = fs.readdirSync("decisions").filter(f => f.endsWith(".json"))
+// Every issue counts, so one person can record several decisions.
+const records = fs.readdirSync("decisions").filter(f => f.endsWith(".json"))
   .map(f => JSON.parse(fs.readFileSync(path.join("decisions", f), "utf8")))
   .sort((a, b) => a.recordedAt.localeCompare(b.recordedAt));
-const latest = new Map();
-for (const r of all) latest.set(`${r.jig}|${r.jigVersion}|${r.login}`, r);
-const records = [...latest.values()];
 fs.writeFileSync("decisions.json", JSON.stringify({ generatedAt: new Date().toISOString(), records }, null, 2) + "\n");
 
-const superseded = all.filter(r => r.login === record.login && r.jigVersion === record.jigVersion && r.issue !== record.issue);
 out("status", "ok");
 out("message", [
   `Recorded for **${record.login}** (${record.role}) against jig version \`${record.jigVersion}\`.`,
   "",
-  `Colour \`${record.values.colour.token || record.values.colour.hex}\`, link ${record.values.linkOpacity}, hovered ${record.values.hoverOpacity}, others ${record.values.dimOpacity}.`,
-  superseded.length ? `\nThis replaces your earlier record in #${superseded.map(r => r.issue).join(", #")}.` : ""
+  `Colour \`${record.values.colour.token || record.values.colour.hex}\`, link ${record.values.linkOpacity}, hovered ${record.values.hoverOpacity}, others ${record.values.dimOpacity}.`
 ].join("\n"));

@@ -6,7 +6,7 @@ A d.AI brief 01 jig for link colour and opacity in the telemetry pipeline Sankey
 
 1. A participant configures the jig (`index.html`) and presses **Record in GitHub**. A new issue opens prefilled with a JSON record and their rationale.
 2. They submit the issue. `.github/workflows/record-decision.yml` runs `scripts/record-decision.mjs`, which validates the record, takes identity and time from GitHub, writes `decisions/<issue>.json` and rebuilds `decisions.json`. The Action comments and closes the issue.
-3. The jig fetches `decisions.json` and shows the spread per variable, the median, and each record (with Load to reproduce any configuration). Results stay hidden until the participant records, and looking first is logged as `sawOthers: true`.
+3. The jig fetches `decisions.json` and shows the spread per variable, the median, and each record (with Load to reproduce any configuration). Results stay hidden until the participant records, and looking first is logged as `sawOthers: true`. Both are remembered per jig version in the browser, so a new version starts locked again.
 4. The decision owner ratifies by opening a PR that edits `defaults.json` (`baseline` and `settled`) and cites the issues. Merge is the decision; the jig then shows "Settled in #PR" next to that variable.
 
 ## Setup
@@ -21,6 +21,6 @@ Remove the `example: true` records from `decisions.json` before sharing.
 
 ## Governance notes
 
-- One record per person per jig version; a later issue or an edit replaces the earlier one, and git history keeps both.
+- Each issue is one record, and a person can file several. Editing an issue replaces that issue's record, and git history keeps both.
 - Issue text reaches the script through environment variables only.
 - Private repos: Pages from a private repo needs GitHub Enterprise; otherwise publish the jig from a public repo or an internal Pages site.

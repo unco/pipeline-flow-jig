@@ -218,8 +218,10 @@ td button{padding:4px 10px;font-size:.8rem}
   const isHex = s => /^#[0-9a-f]{6}$/i.test(s);
 
   let state = { ...BASELINE };
-  let sawOthers = store.get("jig.sawOthers") === "1";
-  let submitted = store.get("jig.submitted") === "1";
+  // Scoped to the jig version, so each round starts locked with sawOthers cleared.
+  const KEY = k => `jig.${JIG.id}.${JIG.version}.${k}`;
+  let sawOthers = store.get(KEY("sawOthers")) === "1";
+  let submitted = store.get(KEY("submitted")) === "1";
   let settled = {};
   let hoverTarget = null;
 
@@ -364,7 +366,7 @@ td button{padding:4px 10px;font-size:.8rem}
   $("rationale").addEventListener("input", updateRecord);
   $("submitLink").addEventListener("click", e => {
     if ($("submitLink").getAttribute("aria-disabled") === "true") { e.preventDefault(); $("rationale").focus(); return; }
-    submitted = true; store.set("jig.submitted", "1");
+    submitted = true; store.set(KEY("submitted"), "1");
     $("recStatus").textContent = "Opened in GitHub. Once you submit the issue, the Action adds your record within a minute or two. Results are now visible below.";
     reveal();
   });
@@ -373,7 +375,7 @@ td button{padding:4px 10px;font-size:.8rem}
   /* ---- Read-back ---- */
   let records = [];
   function reveal() { $("locked").hidden = true; $("resultsBody").hidden = false; renderResults(); }
-  $("peekBtn").addEventListener("click", () => { sawOthers = true; store.set("jig.sawOthers", "1"); updateRecord(); reveal(); });
+  $("peekBtn").addEventListener("click", () => { sawOthers = true; store.set(KEY("sawOthers"), "1"); updateRecord(); reveal(); });
 
   async function loadJson(path) {
     try { const r = await fetch(path, { cache: "no-store" }); if (!r.ok) return null; return await r.json(); } catch (e) { return null; }
