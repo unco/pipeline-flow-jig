@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-10-27T20:54:54.139Z",
+  "generatedAt": "2026-10-27T20:57:09.087Z",
   "records": [
     {
       "login": "unco",
-      "issue": 2,
-      "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/2",
-      "recordedAt": "2026-10-27T20:54:39Z",
-      "repoSha": "146e647e32ac00cfe72f49f0015f6da69ccd196a",
+      "issue": 3,
+      "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/3",
+      "recordedAt": "2026-10-27T20:56:55Z",
+      "repoSha": "e7966a60e607ed21eca9598dc095109a28d51c95",
       "jig": "telemetry-sankey",
       "jigVersion": "2026.10.27-1",
-      "role": "designer",
+      "role": "operator",
       "values": {
         "colour": {
-          "mode": "preset",
-          "token": "neutral",
-          "hex": "#7d7570"
+          "mode": "custom",
+          "token": null,
+          "hex": "#2a7de1"
         },
         "linkOpacity": 0.8,
         "hoverOpacity": 0.65,
         "dimOpacity": 0.1
       },
-      "rationale": "Slightly warm and still WCAG",
-      "sawOthers": false
+      "rationale": "Testing multiple storage",
+      "sawOthers": true
     }
   ]
 }

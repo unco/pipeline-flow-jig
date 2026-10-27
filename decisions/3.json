@@ -1,0 +1,22 @@
+{
+  "login": "unco",
+  "issue": 3,
+  "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/3",
+  "recordedAt": "2026-10-27T20:56:55Z",
+  "repoSha": "e7966a60e607ed21eca9598dc095109a28d51c95",
+  "jig": "telemetry-sankey",
+  "jigVersion": "2026.10.27-1",
+  "role": "operator",
+  "values": {
+    "colour": {
+      "mode": "custom",
+      "token": null,
+      "hex": "#2a7de1"
+    },
+    "linkOpacity": 0.8,
+    "hoverOpacity": 0.65,
+    "dimOpacity": 0.1
+  },
+  "rationale": "Testing multiple storage",
+  "sawOthers": true
+}
