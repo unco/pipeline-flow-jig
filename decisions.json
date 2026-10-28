@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T12:45:39.823Z",
+  "generatedAt": "2026-10-28T13:00:24.419Z",
   "records": [
     {
       "login": "unco",
@@ -131,6 +131,28 @@
         "dimOpacity": 0.35
       },
       "rationale": "Probably not wcag compliant",
+      "sawOthers": true
+    },
+    {
+      "login": "lisapas",
+      "issue": 7,
+      "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/7",
+      "recordedAt": "2026-10-28T13:00:12Z",
+      "repoSha": "10fe4b83b3f9bf04eb9c851321bc2360ecf11d12",
+      "jig": "telemetry-sankey",
+      "jigVersion": "2026.10.27-1",
+      "role": "designer",
+      "values": {
+        "colour": {
+          "mode": "custom",
+          "token": null,
+          "hex": "#d3c078"
+        },
+        "linkOpacity": 0.5,
+        "hoverOpacity": 0.75,
+        "dimOpacity": 0.4
+      },
+      "rationale": "Better visibility of the text on this colour even at high opacity, more engaging that a grey tone that feels inactive. Crossing of flows overlapping still visible while hovering at the selected opacities.",
       "sawOthers": true
     }
   ]
