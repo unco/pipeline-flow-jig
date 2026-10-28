@@ -1,0 +1,22 @@
+{
+  "login": "unco",
+  "issue": 6,
+  "issueUrl": "https://github.com/unco/pipeline-flow-jig/issues/6",
+  "recordedAt": "2026-10-28T12:45:24Z",
+  "repoSha": "d02b58df88e0915f43681965a60b8b94e63db11d",
+  "jig": "telemetry-sankey",
+  "jigVersion": "2026.10.27-1",
+  "role": "developer",
+  "values": {
+    "colour": {
+      "mode": "custom",
+      "token": null,
+      "hex": "#3a1448"
+    },
+    "linkOpacity": 0.6,
+    "hoverOpacity": 1,
+    "dimOpacity": 0.35
+  },
+  "rationale": "Probably not wcag compliant",
+  "sawOthers": true
+}
